@@ -1,6 +1,11 @@
 ---
+import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+
+const siteTitle = 'Learning Astro by parsehex';
+const { title } = Astro.props;
+const pageTitle = `${title ? title + ' | ' : ''}${siteTitle}`;
 ---
 
 <!doctype html>
@@ -10,7 +15,7 @@ import Footer from '../components/layout/Footer.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Learning Astro by parsehex</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<Header />
@@ -20,23 +25,3 @@ import Footer from '../components/layout/Footer.astro';
 		<Footer />
 	</body>
 </html>
-
-<style is:global>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-
-		min-height: 100dvh;
-		display: grid;
-		grid-template-rows: auto 1fr auto;
-	}
-
-	header, footer {
-		padding: 1em;
-	}
-	main {
-		padding: 0 2.5em;
-	}
-</style>
