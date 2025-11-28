@@ -1,3 +1,8 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +10,33 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Learning Astro by parsehex</title>
 	</head>
 	<body>
-		<slot />
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+
+		min-height: 100dvh;
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+	}
+
+	header, footer {
+		padding: 1em;
+	}
+	main {
+		padding: 1em 2.5em;
 	}
 </style>
