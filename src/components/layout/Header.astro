@@ -4,16 +4,49 @@ import Navigation from './Navigation.astro';
 ---
 
 <header>
-	<Menu />
-	<nav>
-		<Navigation />
-	</nav>
+	<h1>
+		<!-- Site Title -->
+		<a href="/">Learning Astro</a>
+
+		<!-- Site Author -->
+		<small>by <a href="https://parsehex.github.io/" target="_blank" rel="noreferrer">parsehex</a></small>
+	</h1>
+	<div>
+		<Menu />
+		<nav>
+			<Navigation />
+		</nav>
+	</div>
 </header>
 
 <style>
 	header {
-		display: flex;
-		align-items: flex-start;
-		gap: 0.5em;
+		h1 {
+			& > a:first-child {
+				color: black;
+				text-decoration: underline;
+				text-decoration-color: black;
+				text-underline-offset: 0.15em;
+
+				&:hover {
+					color: var(--color-link);
+				}
+			}
+
+			small {
+				font-size: 1.1rem;
+			}
+
+			a {
+				text-decoration: none;
+				color: var(--color-link);
+			}
+		}
+
+		& > div:last-of-type {
+			display: flex;
+			align-items: flex-start;
+			gap: 0.5em;
+		}
 	}
 </style>
